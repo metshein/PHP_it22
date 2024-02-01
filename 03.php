@@ -16,6 +16,20 @@
 
     <body>
 <div class="container">
+    <div class="row">
+        <?php
+    for ($i=1; $i < 7; $i++) { 
+        echo '<div class="col-sm-2"><img src="https://picsum.photos/id/684/200/200" alt=""></div>';
+    }
+
+?>
+        
+
+    </div>
+
+
+
+
     <h1>Harjutused 03</h1>
     <h2>Trapetsi pindala</h2>
     <form action="#" method="get">
@@ -28,7 +42,7 @@
         <input type="submit" class="btn btn-success my-2" value="Arvuta">
     </form>
     <?php
-    if(!empty($_GET['a'])){
+    if(!empty($_GET['a']) && !empty($_GET['b']) && !empty($_GET['h'])){
         $a = $_GET['a'];
         $b = $_GET['b'];
         $h = $_GET['h'];
@@ -44,15 +58,35 @@
         <input type="submit" class="btn btn-success my-2" value="Arvuta">
     </form>
     <?php
-    if(!empty($_GET['c'])){
-        $c = $_GET['c'];
-        $p = 4*$c;
-        echo 'Rombi ümbermõõt on '.$p.'<br>';
+    try {
+        if(!empty($_GET['c']) && !empty($_GET['d']) && $_GET['d'] > 0){
+            $c = $_GET['c'];
+            $p = 4*$c;
+            echo 'Rombi ümbermõõt on '.$p.'<br>';
+        }
+    } catch (\Throwable $th) {
+        echo "Probleem sisestuses<br>";
     }
+  
     ?>
     <h1>Harjutused 04</h1>
+    
 
 
+<?php
+$a = 4;
+$b = 4;
+
+
+if ($a==$b){
+    echo 'Arvud on võrdsed<br>';
+    echo "<img src=\"http://matemaatika.edu.ee/sisu/0156/joonis1.gif\" >";
+} else {
+    echo 'Arvud ei ole võrdsed<br>';
+}
+
+
+?>
 
 
 

@@ -19,7 +19,7 @@
     <div class="row">
         <?php
     for ($i=1; $i < 7; $i++) { 
-        echo '<div class="col-sm-2"><img src="https://picsum.photos/id/684/200/200" alt=""></div>';
+        echo '<div class="col-sm-2"><img src="'.$pilt.'" alt=""></div>';
     }
 
 ?>

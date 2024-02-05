@@ -20,6 +20,34 @@
 
     <body>
         <div class="container">
+<h1>Tüdrukud</h1>
+<?php
+$tydrukud = array("Subaru","BMW","Acura","Mercedes-Benz","Lexus","GMC","Volvo","Toyota","Volkswagen","Volkswagen","GMC","Jeep","Saab","Hyundai","Subaru","Mercedes-Benz");
+
+$rand_keys = array_rand($tydrukud, 1);
+var_dump($rand_keys);
+echo $tydrukud[$rand_keys] . "<br>";
+
+
+
+
+$counter = 0;
+foreach ($tydrukud as $tydruk) {
+    if($counter==3){
+        break;
+    }
+    $counter++;
+
+    echo "$tydruk<br>";
+}
+
+$a=array("red","green","blue","yellow","brown");
+$tykid = array_slice($a,2);
+foreach ($tykid as $tykk) {
+    echo "$tykk<br>";
+}
+
+?>
             <h1>Massiivid</h1>
 
 
@@ -40,6 +68,20 @@
         foreach ($firmad as $firma) {
             echo "$firma<br>";
          }
+
+if(!empty($_GET['firma'])){
+    $vanus = 5;
+
+    if($vanus < 18){
+        echo "Oled liiga noor, et autot juhtida";
+    } else {
+        echo "Oled piisavalt vana, et autot juhtida";
+    }
+}
+
+
+
+
 
 
 ?>

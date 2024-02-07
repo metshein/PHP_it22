@@ -25,7 +25,7 @@
 $tydrukud = array("Subaru","BMW","Acura","Mercedes-Benz","Lexus","GMC","Volvo","Toyota","Volkswagen","Volkswagen","GMC","Jeep","Saab","Hyundai","Subaru","Mercedes-Benz");
 
 $rand_keys = array_rand($tydrukud, 1);
-var_dump($rand_keys);
+// var_dump($rand_keys);
 echo $tydrukud[$rand_keys] . "<br>";
 
 

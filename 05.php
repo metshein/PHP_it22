@@ -20,6 +20,25 @@
 
     <body>
         <div class="container">
+<h1>pildid</h1>
+
+<?php
+$pildid = array("prentice.jpg","freeland.jpg","peterus.jpg","devlin.jpg","gabriel.jpg","pete.jpg");
+echo "<img height='100' src='img/$pildid[2]'><br>";
+echo "<div class='row'>";
+foreach ($pildid as $pilt) {
+    echo "<div class='col-sm-2'>";
+    echo "<img class='img-fluid' height='100' src='img/$pilt'>";
+    echo "</div>";
+}
+echo "</div>";
+
+?>
+
+
+
+
+
 <h1>Tüdrukud</h1>
 <?php
 $tydrukud = array("Subaru","BMW","Acura","Mercedes-Benz","Lexus","GMC","Volvo","Toyota","Volkswagen","Volkswagen","GMC","Jeep","Saab","Hyundai","Subaru","Mercedes-Benz");

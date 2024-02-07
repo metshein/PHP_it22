@@ -49,9 +49,7 @@
     if(!empty($_GET['aasta'])){
         $a = $_GET['aasta'];
         $hetkeaasta = date("Y"); 
-        // var_dump($hetkeaasta);
-        // var_dump($a);
-        // var_dump($hetkeaasta-$a % 5);
+
         if (($hetkeaasta-$a) % 5 == 0) {
             echo 'Juubel!<br>';
         } else {
@@ -64,19 +62,20 @@
 
 <?php
 $a = 4;
-$b = 4;
-
+$b = 54;
 
 if ($a==$b){
-    echo 'Arvud on võrdsed<br>';
-    echo "<img src=\"http://matemaatika.edu.ee/sisu/0156/joonis1.gif\" >";
-} else {
-    echo 'Arvud ei ole võrdsed<br>';
-}
+        echo "Ruut";
+        $pilt = "ruut.png";
+    } else {
+        echo "Ristkülik";
+        $pilt = "ristkylik.png";
+    }
+echo "<img height='100' src='img/$pilt'>";
 
-
-
-
+echo "<br>";
+echo "<br>";
+echo "<br>";
     $vanus = 5;
     $vanus2 = 5;
 

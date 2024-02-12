@@ -20,19 +20,55 @@
 
     <body>
         <div class="container">
-        <h1>Genereeri</h1>  
-        <!-- Tervitus
-        koosta funktsioon, mis tervitab. Näiteks: “Tere päiksekesekene!”
-    Liitu uudiskirjaga
-        koosta funktsioon, mis genereerib Bootstrapi uudiskirjaga liitumise vormi (vorm ja nupp)
-    Kasutajanimi ja email
-        loo funktsioon, mis muudab kasutajanime väikesteks tähtedeks
-        täienda funktsiooni, et kasutajanimele luuakse “@hkhk.edu.ee” lõpuga email
-        täienda funktsiooni nii, et kasutajale luuakse 7-kohaline kood
-            täienda koodi nii, et luuakse tähed ja numbrid läbisegamini
-    Arvud
+        <h1>Sammu pikkus</h1>
+
+        <?php
+
+            $n1 = 0;
+            $n2 = 0;
+            $n3 = 0;
+
+            if (!empty($_GET['n1']) && !empty($_GET['n2']) && !empty($_GET['n3'])){
+                $n1 = $_GET['n1'];
+                $n2 = $_GET['n2'];
+                $n3 = $_GET['n3'];
+            }
+        ?>
+        Arvud
         koosta funktsioon, mis lubab kasutajal valida arvude vahemikku. Näiteks 2 ja 8, tekitavad 2, 3, 4, 5, 6, 7, 8
         täienda funktsiooni nii, et saab muuta genereeritud arvude sammupikkuse. Näiteks 2 kuni 8 ja samm 3, tekitavad 2, 5, 8
+
+        <form action="" method="get">
+            Start: <input type="number" name="n1" value="<?php echo $n1;?>"> Finish: <input type="number" name="n2"value="<?php echo $n2;?>"> Sam: <input type="number" name="n3" value="<?php echo $n3;?>"><input type="submit" value="Näita">
+        </form>
+        <?php
+        function arvud(){
+            $n1 = $_GET['n1'];
+            $n2 = $_GET['n2'];
+            $n3 = $_GET['n3'];
+            if ($n1 < $n2) {
+                for($i = $n1; $i <= $n2; $i += $n3){
+                    echo $i."<br>";
+                }
+            }
+        }
+
+        if(!empty($_GET['n1']) && !empty($_GET['n2']) && !empty($_GET['n3'])){
+            arvud();
+        }
+
+        ?>  
+
+        <h1>Genereeri</h1>  
+
+
+
+
+        
+        <!-- 
+  
+        
+   
     Ristküliku pindala
         koosta funktsioon, mis leiab kasutaja antud arvudega ristkülikupindala
     Isikukood
@@ -42,17 +78,50 @@
         koosta funktsioon, mis hoiab endas kolme ühepikkust massiivi: alus, öeldis ja sihitis
         koosta kood, mis lehele laadimisel valib suvaliselt igast massiivist elemendi ja koostab lause -->
 
+
+
+
         <?php
         function tervitus(){
             echo "Tere päiksekesekene!";
         }
+      
 
+        function uudiskiri(){
+            echo '
+            <form action="" method="get">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Liitu uudiskirjaga</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                    />  
+                </div>
+                <button type="submit" class="btn btn-primary">Liitu</button>
+            </form>';
+        }
 
-
+        uudiskiri();
         tervitus();
-
         ?>
 
+<form action="" method="get">kasutaja: <input type="text" name="kasutja"><input type="submit" value="Tee kasutaja"></form>
+<?php
+function kasutaja(){
+    $kasutaja = $_GET['kasutja'];
+    $kasutaja = strtolower($kasutaja);
+    $kasutaja = $kasutaja."@hkhk.edu.ee";
+    $kood = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 7)), 0, 7);
+    echo "Kasutaja: ".$kasutaja."<br>";
+    echo "Kood: ".$kood;
+}
+
+if(!empty($_GET['kasutja'])){
+    kasutaja();
+}
+?>
 
 
         </div>

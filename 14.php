@@ -10,41 +10,20 @@
     <div class="container">
     <h1>Harjutus 14</h1>
     <?php
-      $kataloog = 'pildifailid';
+      $asukoht = 'pildifailid';
+      $arr = array();
 
-      function get_rand_img($dir){
-            $arr = array();
-            $list = scandir($dir);
-            foreach($list as $file){
-                if($file != '.' && $file != '..'){
-                    $ext = end(explode('.', $file));
-                    if($ext == 'gif' || $ext == 'jpeg' || $ext == 'jpg' || $ext == 'png' || $ext == 'GIF' || $ext == 'JPEG' || $ext == 'JPG' || $ext == 'PNG'){
-                        array_push($arr, $file);
-                    }
-                }
+      if ($handle = opendir($asukoht)) {
+        while (($rida = readdir($handle)) !== false) {
+            if ($rida != "." && $rida != "..") {
+                $arr[] = $rida;
             }
-            return $arr;
-
-
-            //$img = $arr[array_rand($arr)];
-            // if($img != ''){
-            //     $img = array_rand($arr);
-            //     $img = $arr[$img];
-            // }
-            // $img = str_replace("'", "\'", $img);
-            // $img = str_replace(" ", "%20", $img);
-            // return $img;
         }
-echo get_rand_img('pildifailid');
-
-
-      // while($rida = readdir($asukoht)){
-      //   if($rida!='.' && $rida!='..'){
-      //     echo "<a target='_blank' href='$kataloog/$rida'><img src='$kataloog/$rida' alt='pilt' height='100'></a>";
-      //   }
-      // }
-
-
+        closedir($handle);
+      }
+      echo "<img src='$asukoht/" . $arr[array_rand($arr)] . "' alt='pilt' height='100'>";
+      //print_r($arr[array_rand($arr)]);
+      
 ?>
 
     </div>

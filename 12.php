@@ -31,18 +31,25 @@
 
 <h2>Palkade võrdlus</h2>
 <?php
-    $mehed = 0;
-    $meeste_palk = 0;
-    $naised = 0;
-    $naised_palk = 0;
-    
-    $allikas = 'tootajad.csv';
-    $minu_csv = fopen($allikas, 'r') or die('Ei leia faili!');
-    while(!feof($minu_csv)){
-        $rida = fgetcsv($minu_csv, filesize($allikas),';');
+
+    $fail =  fopen('tootajad.csv', 'r');
+    while(!feof($fail)){
+        $rida = fgetcsv($fail, filesize('tootajad.csv'),';');
         print_r($rida);
     }
-    fclose($minu_csv);
+
+    // $mehed = 0;
+    // $meeste_palk = 0;
+    // $naised = 0;
+    // $naised_palk = 0;
+    
+    // $allikas = 'tootajad.csv';
+    // $minu_csv = fopen($allikas, 'r') or die('Ei leia faili!');
+    // while(!feof($minu_csv)){
+    //     $rida = fgetcsv($minu_csv, filesize($allikas),';');
+    //     print_r($rida);
+    // }
+    // fclose($minu_csv);
 ?>
 
 
